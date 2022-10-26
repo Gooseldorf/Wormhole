@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 
 
-public class PlayerInput : IExecute
+public sealed class PlayerInput : IExecute
 {
     private readonly SpaceshipControls _spaceshipControls;
     public event Action <Vector3> MoveInput;

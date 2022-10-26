@@ -9,6 +9,7 @@ public class MainInstaller : MonoInstaller
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private CameraData _cameraData;
     [SerializeField] private AsteroidData _asteroidData;
+    [SerializeField] private BulletsData _bulletsData;
     
     public override void InstallBindings()
     {
@@ -24,6 +25,9 @@ public class MainInstaller : MonoInstaller
         BindAsteroidPool();
         BindAsteroidReleaser();
         Container.Bind<AsteroidGenerator>().AsSingle().NonLazy();
+
+        Container.Bind<BulletsData>().FromInstance(_bulletsData);
+        BindBulletsPool();
     }
     
     private void BindAsteroidPool()
@@ -43,4 +47,13 @@ public class MainInstaller : MonoInstaller
 
         Container.Bind<AsteroidReleaser>().FromInstance(asteroidReleaser).AsSingle();
     }  
+    private void BindBulletsPool()
+    {
+        BulletsPool bulletsPool = Container
+            .InstantiatePrefabForComponent<BulletsPool>(
+                _bulletsData.BulletPoolPrefab,
+                Vector3.zero, Quaternion.identity, null);
+
+        Container.Bind<BulletsPool>().FromInstance(bulletsPool).AsSingle();
+    }   
 }

@@ -7,7 +7,6 @@ public class ViewInstaller : MonoInstaller
 {
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private CameraData _cameraData;
-    [SerializeField] private AsteroidData _asteroidData;
 
     public override void InstallBindings()
     {
