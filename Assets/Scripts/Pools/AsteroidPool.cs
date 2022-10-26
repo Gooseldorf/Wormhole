@@ -1,34 +1,41 @@
 using System.Collections.Generic;
+using Data;
 using UnityEngine;
 using UnityEngine.Pool;
-using Views;
+using Zenject;
+
 
 public class AsteroidPool : MonoBehaviour
 {
-    private List<AsteroidView> _asteroidPrefabs;
-    private List<AsteroidView> _asteroidsList;
-    private int _asteroidsPoolCapacity;
+    private AsteroidData _asteroidData;
+    private List<GameObject> _asteroidPrefabs;
+    private ObjectPool<GameObject> _asteroidsPool;
+    public ObjectPool<GameObject> AsteroidsPool => _asteroidsPool;
     
-    private ObjectPool<AsteroidView> _asteroidsPool;
-    public ObjectPool<AsteroidView> AsteroidsPool => _asteroidsPool;
-    
+    [Inject]
+    private void Construct(AsteroidData data)
+    {
+        _asteroidData = data;
+    }
     private void Awake()
     {
-        _asteroidsPool = new ObjectPool<AsteroidView>(CreateAsteroid, GetAsteroid, ReleaseAsteroid,
-            asteroid => Destroy(asteroid.gameObject), true, _asteroidsPoolCapacity, 200);
+        _asteroidPrefabs = _asteroidData.AsteroidPrefabs;
+        _asteroidsPool = new ObjectPool<GameObject>(CreateAsteroid, GetAsteroid, ReleaseAsteroid, 
+            asteroid => Destroy(asteroid.gameObject), true,
+            _asteroidData.PoolCapacity, _asteroidData.MaxPoolCapacity);
     }
     
-    private AsteroidView CreateAsteroid()
+    private GameObject CreateAsteroid()
     {
         int index = Random.Range(0, _asteroidPrefabs.Count-1);
-        AsteroidView asteroid = Instantiate(_asteroidPrefabs[index]);
+        GameObject asteroid = Instantiate(_asteroidPrefabs[index]);
         return asteroid;
     }
-    private void ReleaseAsteroid(AsteroidView obj)
+    private void ReleaseAsteroid(GameObject obj)
     {
         obj.gameObject.SetActive(false); 
     }
-    private void GetAsteroid(AsteroidView obj)
+    private void GetAsteroid(GameObject obj)
     {
         obj.gameObject.SetActive(true);
     }

@@ -12,11 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8680cf16cf4876849f6f7629e0486c, type: 3}
   m_Name: AsteroidData
   m_EditorClassIdentifier: 
+  _asteroidPoolPrefab: {fileID: 4198325092876918792, guid: ad5e117a8a4bc4493afcc4fabe6c734f,
+    type: 3}
+  _asteroidReleaserPrefab: {fileID: 3632385466775409354, guid: 4172b6c763d4d441c8e98d59acdd36fd,
+    type: 3}
+  _poolCapacity: 100
+  _maxPoolCapacity: 500
+  _maxX: 10
+  _maxY: 10
+  _spawnDistance: 200
+  _spawnTime: 1
+  _startSpawnAmount: 2
   _asteroidPrefabs:
   - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
   - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
   - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
-  _initialQuantity: 10
+  _minScale: 0.6
+  _maxScale: 2
   _minSpeed: 10
   _maxSpeed: 50
   _maxTumble: 3
