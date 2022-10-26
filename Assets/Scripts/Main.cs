@@ -1,4 +1,3 @@
-using System;
 using Managers;
 using UnityEngine;
 using Zenject;
@@ -8,16 +7,16 @@ public class Main : MonoBehaviour
 {
     private ExecutableManager _executableManager;
     private PlayerInput _playerInput;
-    
+
     [Inject]
-    private void Construct(ExecutableManager executableManager, PlayerInput playerInput)
+    private void Construct(PlayerInput input)
     {
-        _executableManager = executableManager;
-        _playerInput = playerInput;
+        _playerInput = input;
     }
-    
+
     private void Start()
     {
+        _executableManager = new ExecutableManager();
         _executableManager.AddExecutableObject(_playerInput);
     }
 

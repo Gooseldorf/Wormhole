@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e364ef82aa211473698743f226514990, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 0}
-  _playerSpeed: 0
+  _playerPrefab: {fileID: 4905159124227362214, guid: 2c284304a514245f39df303ecc49d111,
+    type: 3}
+  _startPoint: {x: 0, y: 0, z: 0}
+  _startRotation: {x: 0, y: 180, z: 0}
+  _playerSpeed: 5
