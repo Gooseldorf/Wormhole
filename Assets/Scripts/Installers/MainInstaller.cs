@@ -1,15 +1,14 @@
-using System;
 using Controllers;
 using Data;
 using UnityEngine;
 using Zenject;
 
-public class MainInstaller : MonoInstaller
+public sealed class MainInstaller : MonoInstaller
 {
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private CameraData _cameraData;
     [SerializeField] private AsteroidData _asteroidData;
-    [SerializeField] private BulletsData _bulletsData;
+    [SerializeField] private LaserWeaponData _laserWeaponData;
     
     public override void InstallBindings()
     {
@@ -26,8 +25,9 @@ public class MainInstaller : MonoInstaller
         BindAsteroidReleaser();
         Container.Bind<AsteroidGenerator>().AsSingle().NonLazy();
 
-        Container.Bind<BulletsData>().FromInstance(_bulletsData);
-        BindBulletsPool();
+        Container.Bind<LaserWeaponData>().FromInstance(_laserWeaponData);
+        BindLaserBulletsPool();
+        Container.Bind<LaserWeaponController>().AsSingle().NonLazy();
     }
     
     private void BindAsteroidPool()
@@ -47,13 +47,13 @@ public class MainInstaller : MonoInstaller
 
         Container.Bind<AsteroidReleaser>().FromInstance(asteroidReleaser).AsSingle();
     }  
-    private void BindBulletsPool()
+    private void BindLaserBulletsPool()
     {
-        BulletsPool bulletsPool = Container
-            .InstantiatePrefabForComponent<BulletsPool>(
-                _bulletsData.BulletPoolPrefab,
+        LaserBulletsPool laserBulletsPool = Container
+            .InstantiatePrefabForComponent<LaserBulletsPool>(
+                _laserWeaponData.BulletPoolPrefab,
                 Vector3.zero, Quaternion.identity, null);
 
-        Container.Bind<BulletsPool>().FromInstance(bulletsPool).AsSingle();
+        Container.Bind<LaserBulletsPool>().FromInstance(laserBulletsPool).AsSingle();
     }   
 }

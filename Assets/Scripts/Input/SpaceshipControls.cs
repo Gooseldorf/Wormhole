@@ -37,13 +37,13 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
+                    ""name"": ""LaserShoot"",
+                    ""type"": ""Value"",
                     ""id"": ""82103c6a-cc67-4d43-aae0-056bc6c471e2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Pause"",
@@ -129,7 +129,7 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""LaserShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -152,7 +152,7 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
         // Spaceship2D
         m_Spaceship2D = asset.FindActionMap("Spaceship2D", throwIfNotFound: true);
         m_Spaceship2D_Move = m_Spaceship2D.FindAction("Move", throwIfNotFound: true);
-        m_Spaceship2D_Shoot = m_Spaceship2D.FindAction("Shoot", throwIfNotFound: true);
+        m_Spaceship2D_LaserShoot = m_Spaceship2D.FindAction("LaserShoot", throwIfNotFound: true);
         m_Spaceship2D_Pause = m_Spaceship2D.FindAction("Pause", throwIfNotFound: true);
     }
 
@@ -214,14 +214,14 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Spaceship2D;
     private ISpaceship2DActions m_Spaceship2DActionsCallbackInterface;
     private readonly InputAction m_Spaceship2D_Move;
-    private readonly InputAction m_Spaceship2D_Shoot;
+    private readonly InputAction m_Spaceship2D_LaserShoot;
     private readonly InputAction m_Spaceship2D_Pause;
     public struct Spaceship2DActions
     {
         private @SpaceshipControls m_Wrapper;
         public Spaceship2DActions(@SpaceshipControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Spaceship2D_Move;
-        public InputAction @Shoot => m_Wrapper.m_Spaceship2D_Shoot;
+        public InputAction @LaserShoot => m_Wrapper.m_Spaceship2D_LaserShoot;
         public InputAction @Pause => m_Wrapper.m_Spaceship2D_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Spaceship2D; }
         public void Enable() { Get().Enable(); }
@@ -235,9 +235,9 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnMove;
-                @Shoot.started -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnShoot;
+                @LaserShoot.started -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnLaserShoot;
+                @LaserShoot.performed -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnLaserShoot;
+                @LaserShoot.canceled -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnLaserShoot;
                 @Pause.started -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_Spaceship2DActionsCallbackInterface.OnPause;
@@ -248,9 +248,9 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @LaserShoot.started += instance.OnLaserShoot;
+                @LaserShoot.performed += instance.OnLaserShoot;
+                @LaserShoot.canceled += instance.OnLaserShoot;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -261,7 +261,7 @@ public partial class @SpaceshipControls : IInputActionCollection2, IDisposable
     public interface ISpaceship2DActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnLaserShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
 }

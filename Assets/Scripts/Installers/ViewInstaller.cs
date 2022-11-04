@@ -7,12 +7,16 @@ public class ViewInstaller : MonoInstaller
 {
     [SerializeField] private PlayerData _playerData;
     [SerializeField] private CameraData _cameraData;
+    [SerializeField] private LaserWeaponData _laserWeaponData;
+    private PlayerView _playerView;
 
     public override void InstallBindings()
     {
         BindPlayerView();
         BindCameraView();
+        BindLaserWeapon();
     }
+
 
     private void BindPlayerView()
     {
@@ -21,8 +25,8 @@ public class ViewInstaller : MonoInstaller
                 _playerData.PlayerPrefab,
                 _playerData.StartPoint,
                 Quaternion.Euler(_playerData.StartRotation), null);
-
         Container.Bind<PlayerView>().FromInstance(playerView).AsSingle();
+        _playerView = playerView;
     }  
     private void BindCameraView()
     {
@@ -33,5 +37,13 @@ public class ViewInstaller : MonoInstaller
                 Quaternion.identity, null);
 
         Container.Bind<CameraView>().FromInstance(cameraView).AsSingle();
+    }
+    private void BindLaserWeapon()
+    {
+        LaserWeaponView laserWeapon = Container
+            .InstantiatePrefabForComponent<LaserWeaponView>(
+                _laserWeaponData.LaserWeaponPrefab, _playerView.transform);
+
+        Container.Bind<LaserWeaponView>().FromInstance(laserWeapon).AsSingle();
     }
 }

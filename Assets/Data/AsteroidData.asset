@@ -28,7 +28,10 @@ MonoBehaviour:
   - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
   - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
   _minScale: 0.6
-  _maxScale: 2
+  _maxScale: 3
   _minSpeed: 10
-  _maxSpeed: 50
+  _maxSpeed: 80
   _maxTumble: 3
+  _baseHealth: 100
+  _explosionPrefab: {fileID: 7762089179883784810, guid: bbc77696187b64457b0746e04644dfc9,
+    type: 3}

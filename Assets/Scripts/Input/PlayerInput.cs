@@ -1,13 +1,17 @@
 using System;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 
 public sealed class PlayerInput : IExecute
 {
     private readonly SpaceshipControls _spaceshipControls;
+    private bool _isShooting;
     public event Action <Vector3> MoveInput;
+    public event Action ShootInput;
+
 
     public PlayerInput(SpaceshipControls controls)
     {
@@ -17,7 +21,12 @@ public sealed class PlayerInput : IExecute
     
     public void Update()
     {
-        Vector2 input = _spaceshipControls.Spaceship2D.Move.ReadValue<Vector2>();
-        MoveInput?.Invoke(new Vector3(input.x, input.y, 0f));
+        Vector2 moveInput = _spaceshipControls.Spaceship2D.Move.ReadValue<Vector2>();
+        MoveInput?.Invoke(new Vector3(moveInput.x, moveInput.y, 0f));
+
+        if (_spaceshipControls.Spaceship2D.LaserShoot.ReadValue<float>() > 0)
+        {
+            ShootInput?.Invoke();
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Data;
 using Interfaces;
 using UnityEngine;
+using Views;
 using Random = UnityEngine.Random;
 
 public sealed class AsteroidGenerator : IExecute
@@ -33,7 +34,11 @@ public sealed class AsteroidGenerator : IExecute
             asteroid.transform.localPosition = RandomV3(true);
             asteroid.transform.localRotation = Quaternion.Euler(RandomV3(false));
             asteroid.transform.localScale = new Vector3(1,1,1);
-            asteroid.transform.localScale *= Random.Range(_asteroidData.MinScale, _asteroidData.MaxScale);
+            
+            float sizeMultiplier = Random.Range(_asteroidData.MinScale, _asteroidData.MaxScale);
+            asteroid.transform.localScale *= sizeMultiplier;
+            asteroid.TryGetComponent(out AsteroidView asteroidView);
+            asteroidView.CurrentHealth = _asteroidData.BaseHealth * sizeMultiplier;
         }
     }
 

@@ -6,15 +6,13 @@ namespace Views
     public class PlayerView : MonoBehaviour
     {
         [SerializeField] private Transform _vcamTarget;
-        public CharacterController Controller { get; private set; }
-        public Animator PlayerAnimator { get; private set; }
-
+        private Rigidbody _rb;
         public Transform VcamTarget => _vcamTarget;
+        public Rigidbody PlayerRb => _rb;
 
         private void Awake()
         {
-            PlayerAnimator = GetComponent<Animator>();
-            Controller = GetComponent<CharacterController>();
+            _rb = GetComponent<Rigidbody>();
         }
     }
 }
