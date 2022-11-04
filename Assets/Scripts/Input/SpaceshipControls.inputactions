@@ -15,13 +15,13 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
-                    "type": "Button",
+                    "name": "LaserShoot",
+                    "type": "Value",
                     "id": "82103c6a-cc67-4d43-aae0-056bc6c471e2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Pause",
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "LaserShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

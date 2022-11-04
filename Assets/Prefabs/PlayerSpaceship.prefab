@@ -9835,7 +9835,8 @@ GameObject:
   - component: {fileID: 4927987973957228418}
   - component: {fileID: 4918108068698435624}
   - component: {fileID: 1585427584396594377}
-  - component: {fileID: 5159099241201064602}
+  - component: {fileID: 5517103625965862262}
+  - component: {fileID: 3618570622248516543}
   m_Layer: 0
   m_Name: PlayerSpaceship
   m_TagString: Untagged
@@ -9927,21 +9928,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vcamTarget: {fileID: 6597507937185336361}
---- !u!143 &5159099241201064602
-CharacterController:
+--- !u!114 &5517103625965862262
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4905159124227362214}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ce862317b8d4a9e844208375edf8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barrelUpLeft: {fileID: 0}
+  _barrelUpRight: {fileID: 0}
+  _barrelDownLeft: {fileID: 0}
+  _barrelDownRight: {fileID: 0}
+--- !u!54 &3618570622248516543
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905159124227362214}
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 5}
+  m_Mass: 10
+  m_Drag: 2
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

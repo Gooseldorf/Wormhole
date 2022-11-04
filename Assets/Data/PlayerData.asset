@@ -16,4 +16,9 @@ MonoBehaviour:
     type: 3}
   _startPoint: {x: 0, y: 0, z: 0}
   _startRotation: {x: 0, y: 180, z: 0}
-  _playerSpeed: 5
+  _playerSpeed: 15
+  _movementAnimationDuration: 3
+  _tiltLimit: 10
+  _tiltSpeed: 10
+  _rotationSpeed: 20
+  _animationDuration: 0.5

@@ -12,11 +12,10 @@ namespace Data
         [SerializeField] private GameObject _asteroidReleaserPrefab;
         [SerializeField] private int _poolCapacity;
         [SerializeField] private int _maxPoolCapacity;
-        
-        [Header("Generator Parameters")]
-        [Header("Asteroids offset from the center of the screen")]
-        [SerializeField] [Range(0f,30f)] 
-        private float _maxX, _maxY;
+
+        [Header("Generator Parameters")] 
+        [SerializeField] private float _maxX;
+        [SerializeField] private float _maxY;
         [SerializeField] private float _spawnDistance;
         [SerializeField] private float _spawnTime;
         [SerializeField] private float _startSpawnAmount;
@@ -28,6 +27,8 @@ namespace Data
         [SerializeField] private float _minSpeed;
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _maxTumble;
+        [SerializeField] private float _baseHealth;
+        [SerializeField] private GameObject _explosionPrefab;
 
         public List<GameObject> AsteroidPrefabs => _asteroidPrefabs;
         public GameObject AsteroidPoolPrefab => _asteroidPoolPrefab;
@@ -44,6 +45,7 @@ namespace Data
         public float SpawnDistance => _spawnDistance;
         public float SpawnTime => _spawnTime;
         public float StartSpawnAmount => _startSpawnAmount;
-
+        public float BaseHealth => _baseHealth;
+        public GameObject ExplosionPrefab => _explosionPrefab;
     }
 }
