@@ -14,9 +14,13 @@ namespace Views
         [SerializeField] private AsteroidData _asteroidData;
         private Rigidbody _rb;
 
+        public Rigidbody Rb => _rb;
+        
         public Action<AsteroidView> ReleaseRequest;
+        public static event Action<AsteroidView> OnAsteroidDestruction;
 
         public float CurrentHealth { get; set; }
+
 
         private void Awake()
         {
@@ -46,10 +50,8 @@ namespace Views
 
         private async void AsteroidExplosion()
         {
-            GameObject explosion = Instantiate(_asteroidData.ExplosionPrefab, transform.position, transform.rotation);
-            explosion.TryGetComponent(out Rigidbody rb);
-            rb.velocity = _rb.velocity;
-            await Task.Delay(800);
+            OnAsteroidDestruction?.Invoke(this);
+            await Task.Delay(_asteroidData.AwaitBeforeRelease);
             ReleaseRequest?.Invoke(this);
         }
     }
