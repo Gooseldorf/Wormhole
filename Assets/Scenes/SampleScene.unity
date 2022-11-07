@@ -581,6 +581,7 @@ MonoBehaviour:
   _playerData: {fileID: 11400000, guid: b875d8d1f28884066a3ad053d5c37b5d, type: 2}
   _cameraData: {fileID: 11400000, guid: 3546fd020626049f1a49d30500163347, type: 2}
   _asteroidData: {fileID: 11400000, guid: f4ee57a40b9c540b58ac89249d4f73d1, type: 2}
+  _explosionData: {fileID: 11400000, guid: 207e6a08aa9f540ff97984523c64664b, type: 2}
   _laserWeaponData: {fileID: 11400000, guid: 2ae6c89475146418bb39854609ce0c3f, type: 2}
 --- !u!1 &985240358
 GameObject:
@@ -737,3 +738,72 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 0
   m_Mesh: {fileID: 2534964839176971238, guid: ed745bc981cc04d88a3be7130b7b14f6, type: 3}
+--- !u!1001 &9200194996002870686
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026033411783512985, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171982816238116458, guid: 6c38550d0f072400bb0705c1657294da,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c38550d0f072400bb0705c1657294da, type: 3}

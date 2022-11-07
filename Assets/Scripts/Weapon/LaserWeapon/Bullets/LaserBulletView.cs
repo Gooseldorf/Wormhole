@@ -24,16 +24,16 @@ public sealed class LaserBulletView : MonoBehaviour
     public event Action<GameObject> BulletCollision;
     public event Action<GameObject> EndOfLifetime;
 
-    private void OnEnable()
-    {
-        _timer = 0;
-    }
-
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
     }
-
+    
+    private void OnEnable()
+    {
+        _timer = 0;
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         other.TryGetComponent(out IDamagable damagable);

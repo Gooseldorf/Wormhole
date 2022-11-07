@@ -28,12 +28,7 @@ namespace Data
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _maxTumble;
         [SerializeField] private float _baseHealth;
-
-        [Header("Impact parameters")] 
-        [SerializeField] private GameObject _explosionPoolPrefab;
-        [SerializeField] private GameObject _explosionPrefab;
-        [SerializeField] private int _explosionPoolCapacity;
-        [SerializeField] private int _explosionMaxPoolCapacity;
+        [SerializeField] private int _awaitBeforeRelease;
 
         public List<GameObject> AsteroidPrefabs => _asteroidPrefabs;
         public GameObject AsteroidPoolPrefab => _asteroidPoolPrefab;
@@ -51,11 +46,6 @@ namespace Data
         public float SpawnTime => _spawnTime;
         public float StartSpawnAmount => _startSpawnAmount;
         public float BaseHealth => _baseHealth;
-        public GameObject ExplosionPrefab => _explosionPrefab;
-        public GameObject ExplosionPoolPrefab => _explosionPoolPrefab;
-
-        public int ExplosionPoolCapacity => _explosionPoolCapacity;
-
-        public int ExplosionMaxPoolCapacity => _explosionMaxPoolCapacity;
+        public int AwaitBeforeRelease => _awaitBeforeRelease;
     }
 }
