@@ -41,10 +41,6 @@ namespace Views
             if (CurrentHealth < 0)
             {
                 AsteroidExplosion();
-                /*GameObject explosion = Instantiate(_asteroidData.ExplosionPrefab, transform.position, transform.rotation);
-                explosion.TryGetComponent(out Rigidbody rb);
-                rb.velocity = _rb.velocity;
-                ReleaseRequest?.Invoke(this);*/
             }
         }
 

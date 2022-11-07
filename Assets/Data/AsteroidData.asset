@@ -33,5 +33,9 @@ MonoBehaviour:
   _maxSpeed: 80
   _maxTumble: 3
   _baseHealth: 100
+  _explosionPoolPrefab: {fileID: 4737350485598763148, guid: 02dcf5b054a02410b8bd3a24d3ab47af,
+    type: 3}
   _explosionPrefab: {fileID: 7762089179883784810, guid: bbc77696187b64457b0746e04644dfc9,
     type: 3}
+  _explosionPoolCapacity: 10
+  _explosionMaxPoolCapacity: 20

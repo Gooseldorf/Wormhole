@@ -1,5 +1,6 @@
 using Controllers;
 using Data;
+using Pools;
 using UnityEngine;
 using Zenject;
 
@@ -28,6 +29,8 @@ public sealed class MainInstaller : MonoInstaller
         Container.Bind<LaserWeaponData>().FromInstance(_laserWeaponData);
         BindLaserBulletsPool();
         Container.Bind<LaserWeaponController>().AsSingle().NonLazy();
+        
+        BindExplosionPool();
     }
     
     private void BindAsteroidPool()
@@ -38,7 +41,8 @@ public sealed class MainInstaller : MonoInstaller
                 Vector3.zero, Quaternion.identity, null);
 
         Container.Bind<AsteroidPool>().FromInstance(asteroidPool).AsSingle();
-    }   
+    }  
+    
     private void BindAsteroidReleaser()
     {
         AsteroidReleaser asteroidReleaser = Container
@@ -47,6 +51,7 @@ public sealed class MainInstaller : MonoInstaller
 
         Container.Bind<AsteroidReleaser>().FromInstance(asteroidReleaser).AsSingle();
     }  
+    
     private void BindLaserBulletsPool()
     {
         LaserBulletsPool laserBulletsPool = Container
@@ -56,4 +61,14 @@ public sealed class MainInstaller : MonoInstaller
 
         Container.Bind<LaserBulletsPool>().FromInstance(laserBulletsPool).AsSingle();
     }   
+    
+    private void BindExplosionPool()
+    {
+        ExplosionPool explosionPool = Container
+            .InstantiatePrefabForComponent<ExplosionPool>(
+                _asteroidData.ExplosionPoolPrefab,
+                Vector3.zero, Quaternion.identity, null);
+
+        Container.Bind<ExplosionPool>().FromInstance(explosionPool).AsSingle();
+    }  
 }

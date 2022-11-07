@@ -31,7 +31,7 @@ public class AsteroidPool : MonoBehaviour
         int index = Random.Range(0, _asteroidPrefabs.Count-1);
         GameObject asteroid = Instantiate(_asteroidPrefabs[index]);
         asteroid.TryGetComponent(out AsteroidView asteroidView);
-        asteroidView.ReleaseRequest += delegate(AsteroidView view) {_asteroidsPool.Release(asteroid);};
+        asteroidView.ReleaseRequest += delegate {_asteroidsPool.Release(asteroid);};
         return asteroid;
     }
     private void ReleaseAsteroid(GameObject obj)
