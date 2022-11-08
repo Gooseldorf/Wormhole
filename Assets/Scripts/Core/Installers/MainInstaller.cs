@@ -11,6 +11,7 @@ public sealed class MainInstaller : MonoInstaller
     [SerializeField] private AsteroidData _asteroidData;
     [SerializeField] private ExplosionData _explosionData;
     [SerializeField] private LaserWeaponData _laserWeaponData;
+    [SerializeField] private LaserHitData _laserHitData;
     
     public override void InstallBindings()
     {
@@ -27,10 +28,14 @@ public sealed class MainInstaller : MonoInstaller
         BindAsteroidReleaser();
         Container.Bind<AsteroidGenerator>().AsSingle().NonLazy();
 
+        Container.Bind<LaserHitData>().FromInstance(_laserHitData);
+        BindLaserHitPool();
+        Container.Bind<LaserHitGenerator>().AsSingle().NonLazy();
+        
         Container.Bind<LaserWeaponData>().FromInstance(_laserWeaponData);
         BindLaserBulletsPool();
         Container.Bind<LaserWeaponController>().AsSingle().NonLazy();
-
+        
         Container.Bind<ExplosionData>().FromInstance(_explosionData);
         BindExplosionPool();
         Container.Bind<ExplosionGenerator>().AsSingle().NonLazy();
@@ -63,6 +68,16 @@ public sealed class MainInstaller : MonoInstaller
                 Vector3.zero, Quaternion.identity, null);
 
         Container.Bind<LaserBulletsPool>().FromInstance(laserBulletsPool).AsSingle();
+    }
+    
+    private void BindLaserHitPool()
+    {
+        LaserHitPool laserHitPool = Container
+            .InstantiatePrefabForComponent<LaserHitPool>(
+                _laserHitData.LaserHitPoolPrefab,
+                Vector3.zero, Quaternion.identity, null);
+
+        Container.Bind<LaserHitPool>().FromInstance(laserHitPool).AsSingle();
     }   
     
     private void BindExplosionPool()

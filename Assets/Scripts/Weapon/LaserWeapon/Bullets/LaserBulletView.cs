@@ -21,8 +21,9 @@ public sealed class LaserBulletView : MonoBehaviour
         set => _damage = value;
     }
 
-    public event Action<GameObject> BulletCollision;
-    public event Action<GameObject> EndOfLifetime;
+    public event Action<GameObject> ReleaseRequest;
+    public event Action<Vector3,Vector3> OnLaserBulletCollision;
+    
 
     private void Awake()
     {
@@ -33,20 +34,29 @@ public sealed class LaserBulletView : MonoBehaviour
     {
         _timer = 0;
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        collision.collider.TryGetComponent(out IDamagable damagable);
+        collision.collider.TryGetComponent(out Rigidbody rb);
+        damagable.ReceiveDamage(_damage);
+        ReleaseRequest?.Invoke(gameObject);
+        OnLaserBulletCollision?.Invoke(transform.position, rb.velocity);
+    }
+
+    /*private void OnTriggerEnter(Collider other)
     {
         other.TryGetComponent(out IDamagable damagable);
         damagable.ReceiveDamage(_damage);
         BulletCollision?.Invoke(gameObject);
-    }
+    }*/
 
     private void Update()
     {
         _timer += Time.deltaTime;
         if (_timer > _lifetime)
         {
-            EndOfLifetime?.Invoke(gameObject);
+            ReleaseRequest?.Invoke(gameObject);
         }
     }
 }

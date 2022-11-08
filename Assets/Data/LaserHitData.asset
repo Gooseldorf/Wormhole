@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c097a92a5161498f806c8e3d5a77a64d, type: 3}
+  m_Name: LaserHitData
+  m_EditorClassIdentifier: 
+  _laserHitPoolPrefab: {fileID: 4277268191564320277, guid: 1700302d827374e78bd9cb9c0905f792,
+    type: 3}
+  _laserHitPrefab: {fileID: 3346264853176858749, guid: 8eb9f319df5b1448ab9192f81030d894,
+    type: 3}
+  _laserHitPoolCapacity: 30
+  _laserHitMaxPoolCapacity: 70
+  _lifeTime: 1
+  _hitVelocityMultiplier: 1.2

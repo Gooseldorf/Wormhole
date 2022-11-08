@@ -52,7 +52,8 @@ namespace Views
         {
             OnAsteroidDestruction?.Invoke(this);
             await Task.Delay(_asteroidData.AwaitBeforeRelease);
-            ReleaseRequest?.Invoke(this);
+            if(gameObject.activeInHierarchy)
+                ReleaseRequest?.Invoke(this);
         }
     }
 }
