@@ -10,4 +10,5 @@ public static class Constants
     public const string SHIELD_HP_COMPONENT = "ShieldHp";
     public const string WORMHOLE_DATA = "WormholeData";
     public const string UI_DATA = "UIData";
+    public const string SCORE_MODEL = "ScoreModel";
 }

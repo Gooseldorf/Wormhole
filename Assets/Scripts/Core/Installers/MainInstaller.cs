@@ -23,6 +23,7 @@ public sealed class MainInstaller : MonoInstaller
     [SerializeField] private LaserWeaponData _laserWeaponData;
     [SerializeField] private LaserHitData _laserHitData;
     [SerializeField] private UIData _uiData;
+    [SerializeField] private ScoreModel _scoreModel;
     private PlayerView _playerView;
     private WormholeVisualView _wormholeVisualView;
     
@@ -70,7 +71,18 @@ public sealed class MainInstaller : MonoInstaller
 
         Container.Bind<UIData>().FromInstance(_uiData);
         BindHealthBarView();
+        BindScoreView();
+        Container.Bind<ScoreModel>().FromInstance(_scoreModel);
+        Container.Bind<ScoreAdapter>().AsSingle().NonLazy();
         Container.Bind<HealthBarController>().AsSingle().NonLazy();
+    }
+
+    private void BindScoreView()
+    {
+        ScoreView scoreView = Container
+            .InstantiatePrefabForComponent<ScoreView>(
+                _uiData.ScoreCanvasPrefab);
+        Container.Bind<ScoreView>().FromInstance(scoreView);
     }
 
     private void BindHealthBarView()

@@ -11,15 +11,17 @@ public sealed class Main : MonoBehaviour
     private AsteroidGenerator _asteroidGenerator;
     private ShieldRegenerator _shieldRegenerator;
     private ShieldVisualEffects _shieldVisualEffects;
+    private ScoreAdapter _scoreAdapter;
 
     [Inject]
     private void Construct(PlayerInput input, AsteroidGenerator asteroidGenerator, ShieldRegenerator shieldRegenerator,
-        ShieldVisualEffects shieldVisualEffects)
+        ShieldVisualEffects shieldVisualEffects, ScoreAdapter scoreAdapter)
     {
         _playerInput = input;
         _asteroidGenerator = asteroidGenerator;
         _shieldRegenerator = shieldRegenerator;
         _shieldVisualEffects = shieldVisualEffects;
+        _scoreAdapter = scoreAdapter;
     }
 
     private void Start()
@@ -29,6 +31,7 @@ public sealed class Main : MonoBehaviour
         _executableManager.AddExecutableObject(_asteroidGenerator);
         _executableManager.AddExecutableObject(_shieldRegenerator);
         _executableManager.AddExecutableObject(_shieldVisualEffects);
+        _executableManager.AddExecutableObject(_scoreAdapter);
     }
 
     private void Update()
