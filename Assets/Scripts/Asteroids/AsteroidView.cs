@@ -3,24 +3,26 @@ using System.Threading.Tasks;
 using Data;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
 namespace Views
 {
-    public class AsteroidView : MonoBehaviour, IDamagable
+    public class AsteroidView : MonoBehaviour, IDamagable, IDamage
     {
         [SerializeField] private float _maxTumble;
         [SerializeField] private AsteroidData _asteroidData;
+        private float _damage;
         private Rigidbody _rb;
 
         public Rigidbody Rb => _rb;
-        
         public Action<AsteroidView> ReleaseRequest;
+        public float Damage { get; set;}
         public static event Action<AsteroidView> OnAsteroidDestruction;
 
         public float CurrentHealth { get; set; }
-
+        public float MaxHealth { get; set; }
 
         private void Awake()
         {
@@ -42,6 +44,7 @@ namespace Views
         public void ReceiveDamage(float damage)
         {
             CurrentHealth -= damage;
+            
             if (CurrentHealth < 0)
             {
                 AsteroidExplosion();
@@ -55,5 +58,6 @@ namespace Views
             if(gameObject.activeInHierarchy)
                 ReleaseRequest?.Invoke(this);
         }
+
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2551797551097335472}
   - component: {fileID: 1250688141705071401}
   - component: {fileID: 8102490046800142325}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

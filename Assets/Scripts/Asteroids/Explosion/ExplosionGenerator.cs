@@ -5,7 +5,7 @@ using Views;
 public sealed class ExplosionGenerator
 {
     private readonly ExplosionPool _explosionPool;
-
+    
     public ExplosionGenerator(ExplosionPool pool)
     {
         _explosionPool = pool;

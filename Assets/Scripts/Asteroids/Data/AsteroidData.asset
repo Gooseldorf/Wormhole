@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8680cf16cf4876849f6f7629e0486c, type: 3}
+  m_Name: AsteroidData
+  m_EditorClassIdentifier: 
+  _asteroidPoolPrefab: {fileID: 4198325092876918792, guid: ad5e117a8a4bc4493afcc4fabe6c734f,
+    type: 3}
+  _asteroidReleaserPrefab: {fileID: 3632385466775409354, guid: 4172b6c763d4d441c8e98d59acdd36fd,
+    type: 3}
+  _poolCapacity: 100
+  _maxPoolCapacity: 500
+  _maxX: 6
+  _maxY: 6
+  _spawnDistance: 200
+  _spawnTime: 3
+  _startSpawnAmount: 2
+  _asteroidPrefabs:
+  - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+  - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
+  - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
+  _minScale: 0.6
+  _maxScale: 3
+  _minSpeed: 10
+  _maxSpeed: 80
+  _maxTumble: 3
+  _baseHealth: 100
+  _baseDamage: 10
+  _awaitBeforeRelease: 500

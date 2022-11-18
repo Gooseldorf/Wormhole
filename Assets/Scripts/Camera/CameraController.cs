@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using Views;
 using Data;
@@ -7,13 +8,24 @@ namespace Controllers
 {
     public class CameraController
     {
-        private CinemachineVirtualCamera _vcam;
+        private readonly CameraView _cameraView;
+        private CameraData _cameraData;
 
-        public CameraController(CameraView view, PlayerView player)
+        public readonly Action<float> ShakeCameraAction;
+        
+        public CameraController(CameraView view, CameraData data, PlayerView player)
         {
-            _vcam = view.Vcam;
-            _vcam.Follow = player.VcamTarget;
-            _vcam.LookAt = player.VcamTarget;
+            _cameraView = view;
+            _cameraData = data;
+            ShakeCameraAction = ShakeCamera;
+            _cameraView.Vcam.Follow = player.VcamTarget;
+            _cameraView.Vcam.LookAt = player.VcamTarget;
+        }
+        
+        private void ShakeCamera(float multiplier)
+        {
+            _cameraView.NoiseExtension.m_AmplitudeGain = _cameraData.NoiseAmplitude * multiplier;
+            _cameraView.NoiseExtension.m_FrequencyGain = _cameraData.NoiseAmplitude * multiplier;
         }
     }
 }

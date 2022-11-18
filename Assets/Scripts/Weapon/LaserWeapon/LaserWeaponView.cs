@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class LaserWeaponView : MonoBehaviour
+public sealed class LaserWeaponView : MonoBehaviour
 {
     [SerializeField] private Transform _barrelUpLeft;
     [SerializeField] private Transform _barrelUpRight;

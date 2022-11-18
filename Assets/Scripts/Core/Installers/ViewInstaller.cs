@@ -3,21 +3,29 @@ using UnityEngine;
 using Views;
 using Zenject;
 
-public class ViewInstaller : MonoInstaller
+
+public sealed class ViewInstaller : MonoInstaller
 {
     [SerializeField] private PlayerData _playerData;
+    [SerializeField] private ShieldData _shieldData;
     [SerializeField] private CameraData _cameraData;
     [SerializeField] private LaserWeaponData _laserWeaponData;
     private PlayerView _playerView;
 
     public override void InstallBindings()
     {
-        BindPlayerView();
-        BindCameraView();
-        BindLaserWeapon();
+        //BindPlayerView();
+        //BindShieldView();
+        //BindCameraView();
+        //BindLaserWeapon();
     }
-
-
+    private void BindShieldView()
+    {
+        ShieldView shieldView = Container.InstantiatePrefabForComponent<ShieldView>(
+            _shieldData.ShieldPrefab,
+            _playerView.transform);
+    }
+    
     private void BindPlayerView()
     {
         PlayerView playerView = Container
@@ -28,6 +36,14 @@ public class ViewInstaller : MonoInstaller
         Container.Bind<PlayerView>().FromInstance(playerView).AsSingle();
         _playerView = playerView;
     }  
+    
+    private void BindShield()
+    {
+        ShieldView shieldView = Container.InstantiatePrefabForComponent<ShieldView>(
+            _shieldData.ShieldPrefab,
+            _playerView.transform);
+    }
+    
     private void BindCameraView()
     {
         CameraView cameraView = Container
@@ -38,6 +54,7 @@ public class ViewInstaller : MonoInstaller
 
         Container.Bind<CameraView>().FromInstance(cameraView).AsSingle();
     }
+    
     private void BindLaserWeapon()
     {
         LaserWeaponView laserWeapon = Container

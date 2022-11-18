@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 481134}
   - component: {fileID: 20567912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: test_asteroid_LODGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &481134
 Transform:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 5428902}
   - component: {fileID: 7958754072252451249}
   - component: {fileID: 6524881263517503020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Asteroid 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -94,6 +94,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 481134}
+  - {fileID: 7923617881562380391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +153,7 @@ GameObject:
   - component: {fileID: 445250}
   - component: {fileID: 3348474}
   - component: {fileID: 2342174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: test_asteroid3_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +236,7 @@ GameObject:
   - component: {fileID: 455198}
   - component: {fileID: 3363018}
   - component: {fileID: 2333210}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: test_asteroid3_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +319,7 @@ GameObject:
   - component: {fileID: 494542}
   - component: {fileID: 3390286}
   - component: {fileID: 2322484}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: test_asteroid3_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,6 +356,89 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164382}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 44f9d629006bb76409d3626dd82797c0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &512397007189578487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7923617881562380391}
+  - component: {fileID: 774581148654728057}
+  - component: {fileID: 4048114200942099272}
+  m_Layer: 3
+  m_Name: test_asteroid3_LOD2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7923617881562380391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512397007189578487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 469044}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &774581148654728057
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512397007189578487}
+  m_Mesh: {fileID: 4300000, guid: c8e5dbd0279404f47898113147f8f42f, type: 3}
+--- !u!23 &4048114200942099272
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512397007189578487}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

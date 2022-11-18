@@ -6,21 +6,19 @@ namespace Controllers
 {
     public sealed class LaserWeaponController
     {
-        private PlayerInput _playerInput;
-        private LaserWeaponData _weaponData;
-        private LaserWeaponView _laserWeaponView;
-        private LaserBulletsPool _laserBulletsPool;
+        private readonly LaserWeaponData _weaponData;
+        private readonly LaserWeaponView _laserWeaponView;
+        private readonly LaserBulletsPool _laserBulletsPool;
         private bool _coolDown;
         private int _currentBarrelIndex = 0;
         private float _timer = 0;
 
         public LaserWeaponController(PlayerInput input, LaserWeaponView view, LaserBulletsPool bulletsPool, LaserWeaponData data)
         {
-            _playerInput = input;
             _laserWeaponView = view;
             _laserBulletsPool = bulletsPool;
             _weaponData = data;
-            _playerInput.ShootInput += Shoot;
+            input.ShootInput += Shoot;
         }
 
         private void Shoot()

@@ -1,19 +1,25 @@
 using Managers;
+using Player.Shield;
 using UnityEngine;
 using Zenject;
 
 
-public class Main : MonoBehaviour
+public sealed class Main : MonoBehaviour
 {
     private ExecutableManager _executableManager;
     private PlayerInput _playerInput;
     private AsteroidGenerator _asteroidGenerator;
+    private ShieldRegenerator _shieldRegenerator;
+    private ShieldVisualEffects _shieldVisualEffects;
 
     [Inject]
-    private void Construct(PlayerInput input, AsteroidGenerator asteroidGenerator)
+    private void Construct(PlayerInput input, AsteroidGenerator asteroidGenerator, ShieldRegenerator shieldRegenerator,
+        ShieldVisualEffects shieldVisualEffects)
     {
         _playerInput = input;
         _asteroidGenerator = asteroidGenerator;
+        _shieldRegenerator = shieldRegenerator;
+        _shieldVisualEffects = shieldVisualEffects;
     }
 
     private void Start()
@@ -21,6 +27,8 @@ public class Main : MonoBehaviour
         _executableManager = new ExecutableManager();
         _executableManager.AddExecutableObject(_playerInput);
         _executableManager.AddExecutableObject(_asteroidGenerator);
+        _executableManager.AddExecutableObject(_shieldRegenerator);
+        _executableManager.AddExecutableObject(_shieldVisualEffects);
     }
 
     private void Update()
