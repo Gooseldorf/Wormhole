@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public sealed class Preloader : MonoBehaviour
@@ -15,7 +15,7 @@ public sealed class Preloader : MonoBehaviour
         _fadeGroup.alpha = 1;
         
         //Preload data by Task here. Get _loadTime
-        _loadTime = 0;
+        //_loadTime = 0;
 
         if (Time.time < _minLogoTime)
         {
@@ -40,7 +40,7 @@ public sealed class Preloader : MonoBehaviour
             _fadeGroup.alpha = Time.time - _minLogoTime;
             if (_fadeGroup.alpha >= 1)
             {
-                Debug.Log("NextScene");
+                SceneManager.LoadScene(1);
             }
         }
     }
