@@ -64,7 +64,7 @@ Material:
     - _FresnelPower: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShieldSpeed: 0.8
+    - _ShieldSpeed: 1
     m_Colors:
     - _EmisionColor: {r: 0.22587149, g: 1.331453, b: 2.270603, a: 1}
     - _EmissionColor: {r: 0, g: 0.568755, b: 0.9056604, a: 0}
