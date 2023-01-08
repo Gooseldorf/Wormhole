@@ -38,7 +38,9 @@ public sealed class AsteroidGenerator : IExecute
             float sizeMultiplier = Random.Range(_asteroidData.MinScale, _asteroidData.MaxScale);
             asteroid.transform.localScale *= sizeMultiplier;
             asteroid.TryGetComponent(out AsteroidView asteroidView);
-            asteroidView.CurrentHealth = _asteroidData.BaseHealth * sizeMultiplier;
+            asteroidView.MaxHealth = _asteroidData.BaseHealth * sizeMultiplier;
+            asteroidView.CurrentHealth = asteroidView.MaxHealth;
+            asteroidView.Damage = _asteroidData.BaseDamage * sizeMultiplier;
         }
     }
 

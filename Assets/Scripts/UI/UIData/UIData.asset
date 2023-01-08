@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643f33078258849c1b7d80c8ae544a87, type: 3}
+  m_Name: UIData
+  m_EditorClassIdentifier: 
+  _canvasPrefab: {fileID: 5874628183826613942, guid: 911b06b23da1441a49b1e4391fbcb6b1,
+    type: 3}
+  _healthBarCanvasPrefab: {fileID: 7379052153518752314, guid: c89a756246b21480794ad4e56f288de5,
+    type: 3}
+  _scoreCanvasPrefab: {fileID: 2709735549182745558, guid: 4bb95f2f382af420ba316bf84e84d587,
+    type: 3}
+  _motherShipHealthCanvasPrefab: {fileID: 5899882084638816740, guid: 4950351e392804d35b61bd09bf726900,
+    type: 3}
+  _weaponLoadingCanvasPrefab: {fileID: 7282990924963390474, guid: 29be3ac16b9864bfb94c46eca02ca91a,
+    type: 3}

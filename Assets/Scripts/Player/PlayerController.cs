@@ -1,3 +1,4 @@
+using System;
 using Data;
 using DG.Tweening;
 using UnityEngine;
@@ -29,6 +30,15 @@ namespace Controllers
             {
                 _playerView.transform.DORotate(new Vector3(0, 0, _playerData.RotationSpeed) 
                                                     * moveInput.x, _playerData.AnimationDuration, RotateMode.LocalAxisAdd);
+            }
+
+            if (moveInput.y != 0)
+            {
+                _playerView.EngineAudioSource.pitch = 1.1f;
+            }
+            else
+            {
+                _playerView.EngineAudioSource.pitch = 1;
             }
         }
     }

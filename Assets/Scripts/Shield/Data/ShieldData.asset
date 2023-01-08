@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5049b33ddafa749c99ba1e6581753b00, type: 3}
+  m_Name: ShieldData
+  m_EditorClassIdentifier: 
+  _shieldPrefab: {fileID: 7486304496722676449, guid: 91b1652397b3f4a68b2992aa6cff19f3,
+    type: 3}
+  _shieldShader: {fileID: -6465566751694194690, guid: 058803be1660b49b9a5275539869b270,
+    type: 3}
+  _shieldMaterial: {fileID: 2100000, guid: e0fb503d2794646f1b2b39afd0d38f0c, type: 2}
+  _shieldMainTexture: {fileID: 2800000, guid: 063a8ac0294b24088a538b077136c776, type: 3}
+  _mainColor: {r: 0, g: 0, b: 0, a: 0}
+  _emissionTexture: {fileID: 2800000, guid: 9b356b7246d8348b3a6a86609218e9f9, type: 3}
+  _emissionColor: {r: 0.02616591, g: 0.7924528, b: 0.68766147, a: 0}
+  _mainTiling: {x: 8, y: 8}
+  _gradientTexture: {fileID: 2800000, guid: 3506b406e635c460a82578aa29167f1c, type: 3}
+  _gradientColor: {r: 1, g: 1, b: 1, a: 0}
+  _gradientTiling: {x: 2, y: 2}
+  _shieldSpeed: 1.2
+  _shieldAlpha: 0.5
+  _shieldStartHp: 100
+  _timeBeforeRegeneration: 4
+  _regenerationValueInSecond: 10
+  _fadingSpeedAfterImpact: 10
+  _cameraShakeTime: 3
+  _cameraShakeMultiplier: 5

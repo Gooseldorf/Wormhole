@@ -28,5 +28,10 @@ public sealed class PlayerInput : IExecute
         {
             ShootInput?.Invoke();
         }
+
+        if (_spaceshipControls.Spaceship2D.Pause.triggered)
+        {
+            GameStateController.IsGamePaused = true;
+        }
     }
 }
