@@ -19,7 +19,7 @@ MonoBehaviour:
   _bulletPoolPrefab: {fileID: 1624899150320674974, guid: 0aa700d98e13a4bd8a8f2600a87f4854,
     type: 3}
   _bulletSpeed: 40
-  _shootDelay: 0.1
+  _shootDelay: 0.13
   _damage: 100
   _bulletLifetime: 3
   _poolCapacity: 20

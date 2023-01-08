@@ -7,8 +7,7 @@ public class HealthBarController
 {
     private readonly ShieldHp _shieldHp;
     private readonly HealthBarView _healthBarView;
-    
-    
+
     public HealthBarController(ShieldHp shieldHp, HealthBarView view)
     {
         _shieldHp = shieldHp;

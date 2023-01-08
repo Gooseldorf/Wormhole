@@ -13,6 +13,8 @@ public sealed class Main : MonoBehaviour
     private ShieldVisualEffects _shieldVisualEffects;
     private ScoreAdapter _scoreAdapter;
 
+    [SerializeField] private GameObject _mobileInput;
+
     [Inject]
     private void Construct(PlayerInput input, AsteroidGenerator asteroidGenerator, ShieldRegenerator shieldRegenerator,
         ShieldVisualEffects shieldVisualEffects, ScoreAdapter scoreAdapter)
@@ -32,6 +34,15 @@ public sealed class Main : MonoBehaviour
         _executableManager.AddExecutableObject(_shieldRegenerator);
         _executableManager.AddExecutableObject(_shieldVisualEffects);
         _executableManager.AddExecutableObject(_scoreAdapter);
+
+        if (Application.isMobilePlatform)
+        {
+            _mobileInput.gameObject.SetActive(true);
+        }
+        else
+        {
+            _mobileInput.gameObject.SetActive(true);
+        }
     }
 
     private void Update()

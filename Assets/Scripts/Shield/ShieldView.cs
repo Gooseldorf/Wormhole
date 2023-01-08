@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Interfaces;
 using UnityEngine;
 using Views;
@@ -7,10 +8,13 @@ using Views;
 public sealed class ShieldView : MonoBehaviour, IDamagable
 {
     [SerializeField] private ParticleSystem _impactParticles;
+    [SerializeField] private AudioSource _shieldAudioSource;
     public MeshRenderer ShieldRenderer { get; private set; }
     public ParticleSystem ImpactParticles => _impactParticles;
-    
+    public AudioSource ShieldAudioSource => _shieldAudioSource;
+
     public event Action <float> OnDamage;
+    public bool IsFinishRegenerationFlag;
 
     private void Awake()
     {

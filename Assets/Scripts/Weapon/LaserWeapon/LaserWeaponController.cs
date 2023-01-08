@@ -41,6 +41,7 @@ namespace Controllers
                 {
                     _currentBarrelIndex = 0;
                 }
+                _laserWeaponView.LaserWeaponAudioSources[_currentBarrelIndex].Play();
             }
         }
     }

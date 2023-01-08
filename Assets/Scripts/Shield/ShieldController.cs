@@ -21,6 +21,7 @@ public sealed class ShieldController
         _shieldView.OnDamage += ReceiveDamage;
         _shieldHp = hp;
         _shieldRegenerator = regenerator;
+        regenerator.OnRegenerationComplete += FinishRegeneration;
     }
 
     private void ReceiveDamage(float damage)
@@ -31,5 +32,12 @@ public sealed class ShieldController
             _shieldHp.CurrentShieldHp = 0;
         }
         _shieldRegenerator.ResetRegeneration();
+        _shieldView.ShieldAudioSource.volume = 1f;
+        _shieldView.ShieldAudioSource.Play();
+    }
+
+    private void FinishRegeneration()
+    {
+        DOTween.To(() => _shieldView.ShieldAudioSource.volume, x => _shieldView.ShieldAudioSource.volume = x, 0, 3);
     }
 }

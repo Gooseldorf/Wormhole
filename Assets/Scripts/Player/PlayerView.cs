@@ -7,20 +7,15 @@ namespace Views
     public class PlayerView : MonoBehaviour
     {
         [SerializeField] private Transform _vcamTarget;
+        [SerializeField] private AudioSource _engineAudioSource;
         private Rigidbody _rb;
         public Transform VcamTarget => _vcamTarget;
         public Rigidbody PlayerRb => _rb;
-        [SerializeField] private float _wormholeRadius;
-        private float _currentPlayerSquareRadius;
+        public AudioSource EngineAudioSource => _engineAudioSource;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
-        }
-
-        private void Update()
-        {
-      
         }
     }
 }

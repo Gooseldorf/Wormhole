@@ -8,13 +8,16 @@ public sealed class LaserWeaponView : MonoBehaviour
     [SerializeField] private Transform _barrelUpRight;
     [SerializeField] private Transform _barrelDownLeft;
     [SerializeField] private Transform _barrelDownRight;
+    [SerializeField] private List<AudioSource> _laserWeaponAudioSources;
     private List<Transform> _laserWeaponBarrels;
+    
 
     public Transform BarrelUpLeft => _barrelUpLeft;
     public Transform BarrelUpRight => _barrelUpRight;
     public Transform BarrelDownLeft => _barrelDownLeft;
     public Transform BarrelDownRight => _barrelDownRight;
     public List<Transform> LaserWeaponBarrels => _laserWeaponBarrels;
+    public List<AudioSource> LaserWeaponAudioSources => _laserWeaponAudioSources;
 
     private void Awake()
     {

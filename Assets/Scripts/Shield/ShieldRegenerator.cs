@@ -62,6 +62,7 @@ namespace Player.Shield
             }
             else
             {
+                _canRegenerate = false;
                 OnRegenerationComplete?.Invoke();
                 ClampMaxHealth();
             }

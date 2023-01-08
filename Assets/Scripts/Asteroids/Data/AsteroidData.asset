@@ -22,16 +22,16 @@ MonoBehaviour:
   _maxY: 6
   _spawnDistance: 200
   _spawnTime: 3
-  _startSpawnAmount: 2
+  _startSpawnAmount: 4
   _asteroidPrefabs:
   - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
   - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
   - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
   _minScale: 0.6
-  _maxScale: 3
+  _maxScale: 2.5
   _minSpeed: 10
   _maxSpeed: 80
   _maxTumble: 3
   _baseHealth: 100
-  _baseDamage: 10
+  _baseDamage: 15
   _awaitBeforeRelease: 500
