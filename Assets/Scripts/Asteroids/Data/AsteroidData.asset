@@ -33,5 +33,5 @@ MonoBehaviour:
   _maxSpeed: 80
   _maxTumble: 3
   _baseHealth: 100
-  _baseDamage: 15
+  _baseDamage: 10
   _awaitBeforeRelease: 500

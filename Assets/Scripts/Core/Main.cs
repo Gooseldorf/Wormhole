@@ -35,9 +35,9 @@ public sealed class Main : MonoBehaviour
         _executableManager.AddExecutableObject(_shieldVisualEffects);
         _executableManager.AddExecutableObject(_scoreAdapter);
 
-        if (Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            _mobileInput.gameObject.SetActive(true);
+            _mobileInput.gameObject.SetActive(false);
         }
         else
         {

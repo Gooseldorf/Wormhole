@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Data;
 using DG.Tweening;
 using Shield.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
+using SceneManager = Managers.SceneManager;
 
 public class GameStateController : MonoBehaviour
 {
@@ -18,6 +16,7 @@ public class GameStateController : MonoBehaviour
    [SerializeField] private AudioClip _explosion;
    [SerializeField] private GameObject _pauseScreen;
    [SerializeField] private CanvasGroup _fadeCanvas;
+   [SerializeField] private AsteroidData _asteroidData;
    private bool _isLastDamage;
    private float _timer;
    
@@ -27,10 +26,13 @@ public class GameStateController : MonoBehaviour
    public static bool IsGameFinish;
    public static bool IsGameEnd;
 
+   private bool _levelUp;
+
    private void Start()
    {
       IsGameStart = true;
       Time.timeScale = 1;
+      _timer = 0;
       _hp.OnValueChange += CheckIfGameEnd;
    }
 
@@ -41,6 +43,30 @@ public class GameStateController : MonoBehaviour
       {
          FinishGame();
       }
+
+      if (_timer is > 100 and < 200)
+      {
+         _asteroidData.StartSpawnAmount = 5;
+         _asteroidData.SpawnTime = 2.8f;
+      }
+      
+      if (_timer is > 200 and < 300)
+      {
+         _asteroidData.StartSpawnAmount = 6;
+         _asteroidData.SpawnTime = 2.6f;
+      }
+      
+      if (_timer is > 300 and < 380)
+      {
+         _asteroidData.StartSpawnAmount = 6;
+         _asteroidData.SpawnTime = 2.4f;
+      }
+
+      if (_timer > 380)
+      {
+         _asteroidData.StartSpawnAmount = 6;
+      }
+      
       
       if (IsGameStart)
       {
@@ -130,16 +156,16 @@ public class GameStateController : MonoBehaviour
       {
          _isLastDamage = false;
       }
-      
    }
 
    private IEnumerator ToMainMenu()
    {
+      _asteroidData.StartSpawnAmount = 6;
+      _asteroidData.SpawnTime = 2.4f;
       DOTween.To(() => _fadeCanvas.alpha, x => _fadeCanvas.alpha = x, 1, 2);
       yield return new WaitForSeconds(2);
       StopAllCoroutines();
-      SceneManager.UnloadSceneAsync("Game");
-      SceneManager.LoadScene("MainMenu");
+      SceneManager.instance.ToMainMenu();
    }
 
    private IEnumerator StartGameWithFadeScreen()
