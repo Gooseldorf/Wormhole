@@ -7,6 +7,7 @@ using Shield.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using SceneManager = Managers.SceneManager;
 
 public class GameStateController : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class GameStateController : MonoBehaviour
    {
       IsGameStart = true;
       Time.timeScale = 1;
+      _timer = 0;
       _hp.OnValueChange += CheckIfGameEnd;
    }
 
@@ -130,7 +132,6 @@ public class GameStateController : MonoBehaviour
       {
          _isLastDamage = false;
       }
-      
    }
 
    private IEnumerator ToMainMenu()
@@ -138,8 +139,7 @@ public class GameStateController : MonoBehaviour
       DOTween.To(() => _fadeCanvas.alpha, x => _fadeCanvas.alpha = x, 1, 2);
       yield return new WaitForSeconds(2);
       StopAllCoroutines();
-      SceneManager.UnloadSceneAsync("Game");
-      SceneManager.LoadScene("MainMenu");
+      SceneManager.instance.ToMainMenu();
    }
 
    private IEnumerator StartGameWithFadeScreen()
