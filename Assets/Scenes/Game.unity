@@ -659,6 +659,7 @@ MonoBehaviour:
   _explosion: {fileID: 0}
   _pauseScreen: {fileID: 432220898}
   _fadeCanvas: {fileID: 1243780633}
+  _asteroidData: {fileID: 11400000, guid: f4ee57a40b9c540b58ac89249d4f73d1, type: 2}
 --- !u!82 &561043564
 AudioSource:
   m_ObjectHideFlags: 0

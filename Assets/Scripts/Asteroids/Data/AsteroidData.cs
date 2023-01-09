@@ -44,8 +44,18 @@ namespace Data
         public float MaxX => _maxX;
         public float MaxY => _maxY;
         public float SpawnDistance => _spawnDistance;
-        public float SpawnTime => _spawnTime;
-        public float StartSpawnAmount => _startSpawnAmount;
+        public float SpawnTime
+        {
+            get => _spawnTime;
+            set => _spawnTime = value;
+        }
+
+        public float StartSpawnAmount
+        {
+            get => _startSpawnAmount;
+            set => _startSpawnAmount = value;
+        }
+
         public float BaseHealth => _baseHealth;
         public float BaseDamage => _baseDamage;
         public int AwaitBeforeRelease => _awaitBeforeRelease;
